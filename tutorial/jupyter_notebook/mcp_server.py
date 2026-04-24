@@ -36,6 +36,38 @@ def subtract(a: int, b: int) -> int:
     """
     return a - b
 
+# Define the 'multiply' tool
+@mcp.tool()
+def multiply(a:int, b:int) -> int:
+    """Multiply the two numbers together.
+
+    Args:
+        a: First integer
+        b: Second integer
+
+    Returns:
+        Product of a and b
+    """
+    return a*b
+
+# Define the 'divide' tool
+@mcp.tool()
+def divide(a:int, b:int) -> int:
+    """Divide first number by the second.
+
+    Args:
+        a: First integer
+        b: Second integer
+
+    Returns:
+        Division a/b or None if b==0
+    """
+    try:
+        return a/b
+    except ZeroDivisionError:
+        return 0
+
 if __name__ == "__main__":
     # Run the MCP server with SSE transport over HTTP
     mcp.run(transport="stdio")
+    # mcp.run(transport="streamable-http")

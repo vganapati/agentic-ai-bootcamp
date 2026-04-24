@@ -105,6 +105,17 @@ async def test_tools(client: MCPClient):
     result = await client.call_tool('subtract', {'a': 7, 'b': 4})
     print(f"  Result: {result}")
 
+    print("\n→ Calling multiply(7, 2)")
+    result = await client.call_tool('multiply', {'a': 7, 'b': 2})
+    print(f"  Result: {result}")
+
+    print("\n→ Calling divide(6, 2)")
+    result = await client.call_tool('divide', {'a': 6, 'b': 2})
+    print(f"  Result: {result}")
+
+    print("\n→ Calling divide(6, 0)")
+    result = await client.call_tool('divide', {'a': 6, 'b': 0})
+    print(f"  Result: {result}")
 
 async def main_stdio(server_path: str):
     """Run client with Stdio transport."""
